@@ -1,0 +1,160 @@
+﻿@model ProductViewModel
+
+<div class="card shadow border-0 my-4">
+    <div class="card-header bg-secondary ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">@(Model.ProductModel.ProductId == 0 ? "Create" : "Edit") Product</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body p-4">
+        <form method="post" asp-action="Upsert" enctype="multipart/form-data">
+            <input asp-for="ProductModel.ProductId" hidden />
+            <div class="row">
+                <div class="col-10">
+                    <div class="border p-3">
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="ProductModel.Title" class="form-control border-0 shadow" placeholder="Enter product name" />
+                            <label asp-for="ProductModel.Title" class="ms-2 text-muted"></label>
+                            <span asp-validation-for="ProductModel.Title" class="text-danger"></span>
+                        </div>
+                        <div class="py-2 col-12">
+                            <label asp-for="ProductModel.Description" class="ms-2 text-muted"></label>
+                            <textarea asp-for="ProductModel.Description" rows="3" class="form-control border-0 shadow" ></textarea>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="ProductModel.ISBN" class="form-control border-0 shadow" placeholder="Enter ISBN" />
+                            <label asp-for="ProductModel.ISBN" class="ms-2 text-muted"></label>
+                            <span asp-validation-for="ProductModel.ISBN" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="ProductModel.Author" class="form-control border-0 shadow" placeholder="Enter author" />
+                            <label asp-for="ProductModel.Author" class="ms-2 text-muted"></label>
+                            <span asp-validation-for="ProductModel.Author" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="ProductModel.ListPrice" class="form-control border-0 shadow" placeholder="Enter list price" />
+                            <label asp-for="ProductModel.ListPrice" class="ms-2 text-muted"></label>
+                            <span asp-validation-for="ProductModel.ListPrice" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="ProductModel.Price" class="form-control border-0 shadow" placeholder="Enter price" />
+                            <label asp-for="ProductModel.Price" class="ms-2 text-muted"></label>
+                            <span asp-validation-for="ProductModel.Price" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="ProductModel.Price_50" class="form-control border-0 shadow" placeholder="Enter price less than 50" />
+                            <label asp-for="ProductModel.Price_50" class="ms-2 text-muted"></label>
+                            <span asp-validation-for="ProductModel.Price_50" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input asp-for="ProductModel.Price_100" class="form-control border-0 shadow" placeholder="Enter price 100 above" />
+                            <label asp-for="ProductModel.Price_100" class="ms-2 text-muted"></label>
+                            <span asp-validation-for="ProductModel.Price_100" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <input type="file" name="files" class="form-control border-0 shadow" multiple />
+                            <label asp-for="ProductModel.ProductImage" class="ms-2"></label>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <select asp-for="ProductModel.Category.CategoryId" asp-items="@Model.CategoryList" class="form-control border-0 shadow">
+                                <option disabled selected>---Select Category---</option>
+                            </select>
+                            <label asp-for="ProductModel.Category.CategoryId" class="ms-2"></label>
+                            <span asp-validation-for="ProductModel.Category.CategoryId" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <select asp-for="ProductModel.CoverType.CoverTypeId" asp-items="@Model.CoverTypeList" class="form-control border-0 shadow">
+                                <option disabled selected>---Select Cover Type---</option>
+                            </select>
+                            <label asp-for="ProductModel.CoverType.CoverTypeId" class="ms-2"></label>
+                            <span asp-validation-for="ProductModel.CoverType.CoverTypeId" class="text-danger"></span>
+                        </div>
+                        <div class="row pt-2">
+                            <div class="col-6 col-md-3">
+                                @if (Model.ProductModel.ProductId == 0)
+                                {
+                                    <button type="submit" onclick="return ValidateInput()" class="btn btn-primary form-control">
+                                        <i class="bi bi-plus-circle"></i> &nbspCreate
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">
+                                        <i class="bi bi-plus-circle"></i> &nbspUpdate
+                                    </button>
+                                }
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a asp-controller="Product" asp-action="Index" class="btn btn-outline-primary form-control">
+                                    <i class="bi bi-backspace"></i> &nbspBack
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-floating py-2 col-12">
+                        @if(Model.ProductModel.ProductImage is not null)
+                        {
+                            foreach (var image in Model.ProductModel.ProductImage)
+                            {
+                                <div class="border p-1 m-2 text-center">
+                                    <img src="@image.ImgUrl" width="100%" style="border-radius:5px; border:1px solid #bbb9b9;" />
+                                    <a asp-action="DeleteImage" class="btn btn-danger" width="100%" asp-route-productImageId="@image.ProductImageId">
+                                        <i class="bi bi-trash"></i> &nbspDelete
+                                    </a>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+
+            
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.tiny.cloud/1/2qcnjd75e8ueqi2j21t0s9op74u6pfro6jmzv7f9p533es7n/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <partial name="_ValidationScriptsPartial"></partial>
+    <script src="/js/admin/orderNotification.js"></script>
+
+    <script>
+        function OnChange(){
+            let img = document.getElementById("img");
+            let imgFile = document.getElementById("imgFile");
+
+            if (imgFile.files[0])
+                img.src = URL.createObjectURL(imgFile.files[0]);
+        }
+
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons lists media table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ]
+        });
+
+        function ValidateInput()
+        {
+            if (document.getElementById("imgFile").value == "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please upload an image!'
+                });
+                return false;
+            }
+            return true;
+        }
+    </script>
+}

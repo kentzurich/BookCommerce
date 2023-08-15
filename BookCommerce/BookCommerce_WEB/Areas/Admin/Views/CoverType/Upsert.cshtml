@@ -1,0 +1,56 @@
+﻿@model CoverTypeModel;
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">@(Model.CoverTypeId == 0 ? "Create" : "Edit") Cover Type</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body p-4">
+        <form method="post" asp-action="Upsert">
+            <input asp-for="CoverTypeId" hidden />
+            <div class="border p-3 mt-4">
+                <div class="row pb-2">
+                    <h2 class="text-primary">@(Model.CoverTypeId == 0 ? "Create" : "Edit") Cover Type</h2>
+                    <hr />
+                </div>
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Name" class="form-control border-0 shadow" placeholder="Enter category name">
+                    <label asp-for="Name" class="ms-2"></label>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="row pt-2">
+                    <div class="col-6 col-md-3">
+                        @if (Model.CoverTypeId == 0)
+                        {
+                            <button type="submit" class="btn btn-primary form-control">
+                                <i class="bi bi-plus-circle"></i> &nbspCreate
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-primary form-control">
+                                <i class="bi bi-plus-circle"></i> &nbspUpdate
+                            </button>
+                        }
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="CoverType" asp-action="Index" class="btn btn-outline-secondary form-control">
+                            <i class="bi bi-backspace"></i> &nbspBack
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+    <script src="/js/admin/orderNotification.js"></script>
+}

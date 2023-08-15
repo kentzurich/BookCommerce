@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\kentz\\Documents\\GitHub\\BookCommerce\\BookCommerce\\BookCommerce_API\\wwwroot\\ProductImage\\product-19\\887309d5-13c2-48c6-9343-34937b330d48.png",
+      "PackagePath": "staticwebassets\\ProductImage\\product-19\\887309d5-13c2-48c6-9343-34937b330d48.png"
+    },
+    {
+      "Id": "C:\\Users\\kentz\\Documents\\GitHub\\BookCommerce\\BookCommerce\\BookCommerce_API\\wwwroot\\ProductImage\\product-19\\b1a2cacc-5c44-469d-b43d-538a4d4c9643.png",
+      "PackagePath": "staticwebassets\\ProductImage\\product-19\\b1a2cacc-5c44-469d-b43d-538a4d4c9643.png"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.BookCommerce_API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.BookCommerce_API.props",
+      "PackagePath": "build\\BookCommerce_API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.BookCommerce_API.props",
+      "PackagePath": "buildMultiTargeting\\BookCommerce_API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.BookCommerce_API.props",
+      "PackagePath": "buildTransitive\\BookCommerce_API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

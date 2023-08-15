@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "Hash": "kQMCx9UGMsEVXIM3S8zllJKMc/tVZpOBIhQlzT585ss=",
+  "Source": "BookCommerce_API",
+  "BasePath": "_content/BookCommerce_API",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "BookCommerce_API\\wwwroot",
+      "Source": "BookCommerce_API",
+      "ContentRoot": "C:\\Users\\kentz\\Documents\\GitHub\\BookCommerce\\BookCommerce\\BookCommerce_API\\wwwroot\\",
+      "BasePath": "_content/BookCommerce_API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\kentz\\Documents\\GitHub\\BookCommerce\\BookCommerce\\BookCommerce_API\\wwwroot\\ProductImage\\product-19\\887309d5-13c2-48c6-9343-34937b330d48.png",
+      "SourceId": "BookCommerce_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kentz\\Documents\\GitHub\\BookCommerce\\BookCommerce\\BookCommerce_API\\wwwroot\\",
+      "BasePath": "_content/BookCommerce_API",
+      "RelativePath": "ProductImage/product-19/887309d5-13c2-48c6-9343-34937b330d48.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProductImage\\product-19\\887309d5-13c2-48c6-9343-34937b330d48.png"
+    },
+    {
+      "Identity": "C:\\Users\\kentz\\Documents\\GitHub\\BookCommerce\\BookCommerce\\BookCommerce_API\\wwwroot\\ProductImage\\product-19\\b1a2cacc-5c44-469d-b43d-538a4d4c9643.png",
+      "SourceId": "BookCommerce_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\kentz\\Documents\\GitHub\\BookCommerce\\BookCommerce\\BookCommerce_API\\wwwroot\\",
+      "BasePath": "_content/BookCommerce_API",
+      "RelativePath": "ProductImage/product-19/b1a2cacc-5c44-469d-b43d-538a4d4c9643.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProductImage\\product-19\\b1a2cacc-5c44-469d-b43d-538a4d4c9643.png"
+    }
+  ]
+}
